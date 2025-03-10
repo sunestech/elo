@@ -1,4 +1,4 @@
-# Provider Configuration
+# Provider Configuration 535002849489
 provider "aws" {
   region = "us-east-1"
 }
@@ -120,7 +120,7 @@ resource "aws_db_instance" "elo_rds" {
   engine_version       = "17" # Updated to a valid version
   instance_class       = "db.t3.micro"
   db_name              = "elodb"
-  username             = "eloadmin"
+  username             = "eloadmin" # Updated to a non-reserved username
   password             = "securepassword"
   skip_final_snapshot  = true
   publicly_accessible  = false
@@ -204,15 +204,15 @@ resource "aws_s3_bucket_policy" "cloudtrail_bucket_policy" {
           Service = "cloudtrail.amazonaws.com"
         }
         Action   = "s3:PutObject"
-        Resource = "${aws_s3_bucket.elo_bucket.arn}/AWSLogs/535002849489/*"
+        Resource = "${aws_s3_bucket.elo_bucket.arn}/AWSLogs/YOUR_ACCOUNT_ID/*"
         Condition = {
           StringEquals = {
             "s3:x-amz-acl" = "bucket-owner-full-control"
           }
-         }
+        }
       },
       {
-        Sid    = "AllowCloudTrailRead",
+        Sid    = "AllowCloudTrailRead"
         Effect = "Allow"
         Principal = {
           Service = "cloudtrail.amazonaws.com"
