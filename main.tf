@@ -239,13 +239,6 @@ resource "aws_cloudtrail" "elo_trail" {
   s3_bucket_name = aws_s3_bucket.elo_bucket.id
   enable_logging = true
   tags = {
-# Enable CloudTrail for Auditing
-resource "aws_cloudtrail" "elo_trail" {
-# Enable CloudTrail for Auditing
-  GNU nano 5.8                                                                   main.tf                                                                              
-  s3_bucket_name = aws_s3_bucket.elo_bucket.id
-  enable_logging = true
-  tags = {
     Name = "elo-trail"
   }
 }
@@ -266,4 +259,3 @@ output "rds_endpoint" {
 output "api_gateway_id" {
   value = aws_api_gateway_rest_api.elo_api.id
 }
-
