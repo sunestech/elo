@@ -117,7 +117,7 @@ resource "aws_db_instance" "elo_rds" {
   allocated_storage    = 20
   storage_type         = "gp2"
   engine               = "postgres"
-  engine_version       = "17" # Updated to a valid version
+  engine_version       = "16" # Updated to a valid version
   instance_class       = "db.t3.micro"
   db_name              = "elodb"
   username             = "eloadmin"
